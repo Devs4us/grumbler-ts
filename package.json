@@ -1,0 +1,38 @@
+{
+  "name": "grumbler-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "watch": "webpack --watch",
+    "setup": "yarn",
+    "build": "yarn types:build && yarn babel && yarn bundle",
+    "start": "webpack-dev-server --progress --colors --open",
+    "clean": "rimraf dist coverage",
+    "babel": "babel ./src --ignore=node_modules --extensions=\".ts,.tsx\" --out-dir ./dist/module",
+    "bundle": "webpack --progress --colors",
+    "types:build": "tsc --emitDeclarationOnly",
+    "types:check": "tsc --noEmit",
+    "types:watch": "yarn types:check -- --watch",
+    "check-updates": "npm-check-updates",
+    "watch:p": "parallel-webpack --config=webpack.config.babel.js --watch",
+    "build:p": "yarn types:build && yarn babel && yarn bundle:p",
+    "bundle:p": "parallel-webpack --config=webpack.config.babel.js --progress --colors"
+  },
+  "files": [
+    "dist/",
+    "src/",
+    "@types"
+  ],
+  "browserslist": [
+    "IE >= 11",
+    "chrome >= 27",
+    "firefox >= 30",
+    "safari >= 7",
+    "opera >= 23"
+  ],
+  "devDependencies": {
+    "grumbler-ts-scripts": "^1.1.0",
+    "typescript": "^4.0.2"
+  }
+}
