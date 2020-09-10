@@ -1,14 +1,14 @@
-import { getWebPackVariants } from "grumbler-ts-scripts/config/webpack.config";
+import { getWebPackVariants, WebpackConfigOptions } from "grumbler-ts-scripts";
 
 const FILE_NAME = "mylibrary";
 const MODULE_NAME = "mylibrary";
 
-export const WEBPACK_CONFIG = {
+export const WEBPACK_CONFIG: WebpackConfigOptions = {
   filename: `${FILE_NAME}.js`,
   modulename: MODULE_NAME,
 };
 
-export const WEBPACK_CONFIG_MIN = {
+export const WEBPACK_CONFIG_MIN: WebpackConfigOptions = {
   filename: `${FILE_NAME}.min.js`,
   modulename: MODULE_NAME,
   minify: true,
@@ -17,7 +17,7 @@ export const WEBPACK_CONFIG_MIN = {
   },
 };
 
-export const WEBPACK_CONFIG_TEST = {
+export const WEBPACK_CONFIG_TEST: WebpackConfigOptions = {
   modulename: MODULE_NAME,
   options: {
     devtool: "inline-source-map",
